@@ -3,14 +3,13 @@ import './App.css';
 // import fetchAPI from './componentes/API';
 // import MyContext from './componentes/MyContext';
 import Provider from './componentes/Provider';
-import Table from './componentes/table';
+import Home from './componentes/home';
 
 function App() {
   return (
     <div>
       <Provider>
-        <span>Hello, App!</span>
-        <Table />
+        <Home />
       </Provider>
     </div>
   );

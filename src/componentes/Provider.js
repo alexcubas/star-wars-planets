@@ -4,11 +4,14 @@ import MyContext from './MyContext';
 
 const Provider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
+  const [newState, setNewState] = useState([]);
 
   const fetchAPI = async () => {
     const url = 'https://swapi-trybe.herokuapp.com/api/planets/';
     const response = await fetch(url).then((resp) => resp.json());
     // console.log(response.results);
+    setNewState(response.results);
     setData(response.results);
   };
 
@@ -19,6 +22,10 @@ const Provider = ({ children }) => {
   const contextValue = {
     data,
     setData,
+    newTodo,
+    setNewTodo,
+    newState,
+    setNewState,
   };
 
   return (
