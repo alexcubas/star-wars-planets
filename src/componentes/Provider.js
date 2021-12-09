@@ -3,9 +3,15 @@ import React, { useState, useEffect } from 'react';
 import MyContext from './MyContext';
 
 const Provider = ({ children }) => {
+  const colunas = ['population',
+    'orbital_period', 'diameter', 'rotation_period', 'surface_water'];
   const [data, setData] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
   const [newState, setNewState] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
+  const [newsColuns, setNewsColuns] = useState('population');
+  const [newsComparison, setnewsComparison] = useState('maior que');
+  const [newsValue, setNewsValue] = useState('0');
+  const [newscolunas, setNewsColunas] = useState(colunas);
 
   const fetchAPI = async () => {
     const url = 'https://swapi-trybe.herokuapp.com/api/planets/';
@@ -20,6 +26,14 @@ const Provider = ({ children }) => {
   }, []);
 
   const contextValue = {
+    newscolunas,
+    setNewsColunas,
+    newsComparison,
+    setnewsComparison,
+    newsValue,
+    setNewsValue,
+    newsColuns,
+    setNewsColuns,
     data,
     setData,
     newTodo,
